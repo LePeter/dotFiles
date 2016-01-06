@@ -3,13 +3,15 @@
 "
 "
 
+" PRELIMINARY CONFIGS ----------------------------------------------------------
 set laststatus=2
 set showtabline=1
 set noshowmode
 set t_Co=256
 
+" PLUGINS CONFIGS -----------------------------------------------------------------
 
-"POWERLINE PLUGIN
+"AIRLINE PLUGIN
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#whitespace#mixed_indent_algo = 1
 let g:airline_left_sep='' "Temporaily disables arrrows due to bug issues
@@ -17,12 +19,24 @@ let g:airline_right_sep=''
 
 
 
-
+"PATHIGEN CONFIG
 set nocp
 execute pathogen#infect()
 
 set noswapfile
 
+
+"GUI THEME SETTINGS
+ colorscheme gruvbox
+
+
+"Synatastic configs
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+hi SignColumn ctermbg=236
 
 "ACTUAL CODEBASE------------------------------------------------------------------------- 
 
@@ -136,11 +150,6 @@ set tm=500
     set showmatch " show matching brackets
     set sidescrolloff=10 " Keep 5 lines at the size
    
-"GUI SETTINGS
- colorscheme gruvbox
-
-
-
 
 "MOUSE OPTIONS
 map <S-Enter> O<ESC>
@@ -179,14 +188,5 @@ autocmd VimEnter * nested NERDTree
 
 set clipboard=unnamedplus
 
-"PLUGINS VIMRC CONFIG ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-"Synatastic configs
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-hi SignColumn ctermbg=236
 
 
