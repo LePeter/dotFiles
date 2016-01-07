@@ -19,10 +19,9 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'bling/vim-airline'
 Plugin 'morhetz/gruvbox'
 
@@ -42,10 +41,7 @@ let g:airline_right_sep=''
 
 
 
-"PATHIGEN CONFIG
 set nocp
-"execute pathogen#infect()
-
 set noswapfile
 
 
@@ -64,6 +60,8 @@ hi SignColumn ctermbg=236
 "Nerdtree configurations
 autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p
+
+"ctrlp-py matcher configurations
 
 "ACTUAL CODEBASE------------------------------------------------------------------------- 
 
