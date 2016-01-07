@@ -1,33 +1,40 @@
+"------------------------------------------------------------------------------
 "Vimrc Configurations 2016 
-"This is a test for github
-"
-"
+" 1. Prelimanary Configs
+" 2. Plugin Configs
+" 3. Codebase Configs
+"-------------------------------------------------------------------------------"
 
 " PRELIMINARY CONFIGS ----------------------------------------------------------
 set laststatus=2
 set showtabline=1
 set noshowmode
 set t_Co=256
+set nocp
+set noswapfile
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " PLUGINS CONFIGS -----------------------------------------------------------------
 
-"VUNDLE CONFGURATIONS
-set rtp+=~/.vim/bundle/Vundle.vim
+" Load vim-plug initially
+if empty(glob("~/.vim/autoload/plug.vim"))
+    execute '!curl -fLo ~/.vim/autoload/plug.vim
+    https://raw.github.com/junegunn/vim-plug/master/plug.vim'
+endif
 
-call vundle#begin()
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/syntastic'
-Plugin 'scrooloose/nerdtree'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'bling/vim-airline'
-Plugin 'morhetz/gruvbox'
+"VIM-PLUG CONFGURATIONS
+call plug#begin('~/.vim/plugged')
 
-call vundle#end()            " required
+Plug 'VundleVim/Vundle.vim'
+Plug 'scrooloose/syntastic'
+Plug 'scrooloose/nerdtree'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'bling/vim-airline'
+Plug 'morhetz/gruvbox'
 
-filetype plugin indent on    " required
+call plug#end()
 
 
 "           --------------------    "
@@ -40,9 +47,6 @@ let g:airline_left_sep='' "Temporaily disables arrrows due to bug issues
 let g:airline_right_sep=''
 
 
-
-set nocp
-set noswapfile
 
 
 "GUI THEME SETTINGS
@@ -62,6 +66,11 @@ autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p
 
 "ctrlp-py matcher configurations
+let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp' "Uses silver_searcher for faster search
+if executable('ag')
+      let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+
 
 "ACTUAL CODEBASE------------------------------------------------------------------------- 
 
