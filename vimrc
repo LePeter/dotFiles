@@ -8,8 +8,31 @@ set laststatus=2
 set showtabline=1
 set noshowmode
 set t_Co=256
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
 " PLUGINS CONFIGS -----------------------------------------------------------------
+
+"VUNDLE CONFGURATIONS
+set rtp+=~/.vim/bundle/Vundle.vim
+
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+Plugin 'bling/vim-airline'
+Plugin 'morhetz/gruvbox'
+
+call vundle#end()            " required
+
+filetype plugin indent on    " required
+
+
+"           --------------------    "
+
 
 "AIRLINE PLUGIN
 let g:airline_powerline_fonts = 1
@@ -21,7 +44,7 @@ let g:airline_right_sep=''
 
 "PATHIGEN CONFIG
 set nocp
-execute pathogen#infect()
+"execute pathogen#infect()
 
 set noswapfile
 
@@ -38,6 +61,10 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 hi SignColumn ctermbg=236
 
+"Nerdtree configurations
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
+
 "ACTUAL CODEBASE------------------------------------------------------------------------- 
 
 "sets cursorLine and Line Numbering
@@ -49,7 +76,7 @@ highlight LineNr ctermfg=59 ctermbg=235
 
 
 "INDENTATION TABBING
-filetype plugin indent on
+"filetype plugin indent on
 " show existing tab with 4 spaces width
 set tabstop=4
 " when indenting with '>', use 4 spaces width
@@ -184,7 +211,6 @@ nnoremap <C-l> <C-w>l
 " they want to handle fixing it...(https://github.com/neovim/neovim/issues/2048)
 nnoremap <silent> <bs> :TmuxNavigateLeft<cr>
 
-autocmd VimEnter * nested NERDTree
 
 set clipboard=unnamedplus
 
