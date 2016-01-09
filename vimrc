@@ -27,12 +27,13 @@ endif
 "VIM-PLUG CONFGURATIONS
 call plug#begin('~/.vim/plugged')
 
-Plug 'VundleVim/Vundle.vim'
 Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdtree'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'bling/vim-airline'
 Plug 'morhetz/gruvbox'
+Plug 'ervandew/supertab'
+Plug 'majutsushi/tagbar'
 
 call plug#end()
 
@@ -45,6 +46,10 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#whitespace#mixed_indent_algo = 1
 let g:airline_left_sep='' "Temporaily disables arrrows due to bug issues
 let g:airline_right_sep=''
+" Enable the list of buffers
+ let g:airline#extensions#tabline#enabled = 1
+" " Show just the filename
+ let g:airline#extensions#tabline#fnamemod = ':t'
 
 
 
@@ -70,6 +75,9 @@ let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp' "Uses silver_searcher for faster
 if executable('ag')
       let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
+
+"Tagbar Configurations
+nmap <F8> :TagbarToggle<CR>
 
 
 "ACTUAL CODEBASE------------------------------------------------------------------------- 
