@@ -11,3 +11,4 @@ ln -s ~/.vim/gvimrc ~/.gvimrc
 git add vimrc
 git commit -m 'Changed vim colorscheme!'
 git push origin master
+Test;
