@@ -1,3 +1,6 @@
 Host mason
     HostName mason.gmu.edu
     Port 22
+Host zeus 
+    HostName zeus.vse.gmu.edu
+    Port 22
